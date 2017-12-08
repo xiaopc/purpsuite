@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="loggerPane" minHeight="500.0" minWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="purpsuite.controller.LoggerController">
+    <children>
+        <TableView fx:id="LoggerTable" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+            <columns>
+                <TableColumn fx:id="LoggerTableTime" minWidth="250.0" prefWidth="75.0" text="时间" />
+                <TableColumn fx:id="LoggerTableInfo" minWidth="500.0" prefWidth="75.0" text="信息" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

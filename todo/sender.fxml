@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="senderPane" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="purpsuite.controller.SenderController" minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+            prefWidth="200.0">
+    <children>
+        <SplitPane dividerPositions="0.5026041666666666" layoutX="26.0" layoutY="77.0" prefHeight="160.0"
+                   prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <TextArea layoutX="55.0" layoutY="37.0" prefHeight="200.0" prefWidth="200.0"
+                                  AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0"
+                                  AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0"/>
+                        <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="发送请求"/>
+                    </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                    <children>
+                        <TextArea editable="false" layoutX="14.0" layoutY="29.0" prefHeight="200.0" prefWidth="200.0"
+                                  AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0"
+                                  AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="40.0"/>
+                        <Text layoutX="15.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="返回内容"/>
+                    </children>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefWidth="100.0" text="发送"/>
+        <Text layoutX="520.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: right;"
+              text="目标服务器" wrappingWidth="200.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="20.0"/>
+        <Button layoutX="735.0" layoutY="13.0" mnemonicParsing="false" prefWidth="50.0" text="编辑"
+                AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0"/>
+    </children>
+</AnchorPane>

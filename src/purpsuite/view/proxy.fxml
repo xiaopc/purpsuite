@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="proxyPane" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="purpsuite.controller.ProxyController">
+    <children>
+        <TabPane layoutX="7.0" layoutY="7.0" minHeight="-Infinity" minWidth="100.0" tabClosingPolicy="UNAVAILABLE"
+                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                 AnchorPane.topAnchor="1.0">
+            <tabs>
+                <Tab text="监控">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Button fx:id="AllowBtn" disable="true" layoutX="15.0" layoutY="15.0"
+                                        mnemonicParsing="false" onAction="#handleAllowBtn" prefWidth="100.0"
+                                        text="允许发送"/>
+                                <Button fx:id="RejectBtn" disable="true" layoutX="135.0" layoutY="15.0"
+                                        mnemonicParsing="false" onAction="#handleRejectBtn" prefWidth="100.0"
+                                        text="拒绝发送"/>
+                                <Button fx:id="FilterBtn" layoutX="255.0" layoutY="15.0" mnemonicParsing="false"
+                                        onAction="#handleFilterBtn" prefWidth="100.0" text="拦截关"/>
+                                <TextArea fx:id="FilterTextArea" disable="true" layoutX="14.0" layoutY="51.0"
+                                          prefHeight="333.0" prefWidth="528.0" AnchorPane.bottomAnchor="15.0"
+                                          AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"
+                                          AnchorPane.topAnchor="60.0"/>
+                                <Text fx:id="HostText" strokeType="OUTSIDE" strokeWidth="0.0" text=" " textAlignment="RIGHT"
+                                      wrappingWidth="250.14993238449097" AnchorPane.rightAnchor="15.0"
+                                      AnchorPane.topAnchor="20.0"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="历史">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0"
+                                           prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                           AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <items>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                            <children>
+                                                <TableView fx:id="HistoryTable" prefHeight="461.0" prefWidth="706.0"
+                                                           AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0"
+                                                           AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="HistoryTableColHost" minWidth="100.0"
+                                                                     prefWidth="75.0" text="主机地址"/>
+                                                        <TableColumn fx:id="HistoryTableColMethod" prefWidth="75.0"
+                                                                     text="请求方法"/>
+                                                        <TableColumn fx:id="HistoryTableColURL" minWidth="300.0"
+                                                                     prefWidth="75.0" text="URL"/>
+                                                        <TableColumn fx:id="HistoryTableColStatus" prefWidth="60.0"
+                                                                     text="状态"/>
+                                                        <TableColumn fx:id="HistoryTableColTime" prefWidth="220.0"
+                                                                     text="时间"/>
+                                                    </columns>
+                                                </TableView>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                            <children>
+                                                <TabPane prefHeight="200.0" prefWidth="200.0"
+                                                         tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="15.0"
+                                                         AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0"
+                                                         AnchorPane.topAnchor="15.0">
+                                                    <tabs>
+                                                        <Tab text="请求包">
+                                                            <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0"
+                                                                            prefHeight="180.0" prefWidth="200.0">
+                                                                    <children>
+                                                                        <TextArea fx:id="HistoryReqTextArea"
+                                                                                  editable="false" prefHeight="200.0"
+                                                                                  prefWidth="200.0"
+                                                                                  AnchorPane.bottomAnchor="0.0"
+                                                                                  AnchorPane.leftAnchor="0.0"
+                                                                                  AnchorPane.rightAnchor="0.0"
+                                                                                  AnchorPane.topAnchor="0.0"/>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </content>
+                                                        </Tab>
+                                                        <Tab text="返回包">
+                                                            <content>
+                                                                <AnchorPane minHeight="0.0" minWidth="0.0"
+                                                                            prefHeight="180.0" prefWidth="200.0">
+                                                                    <children>
+                                                                        <TextArea fx:id="HistoryRecTextArea"
+                                                                                  editable="false" layoutX="44.0"
+                                                                                  layoutY="22.0" prefHeight="200.0"
+                                                                                  prefWidth="200.0"
+                                                                                  AnchorPane.bottomAnchor="0.0"
+                                                                                  AnchorPane.leftAnchor="0.0"
+                                                                                  AnchorPane.rightAnchor="0.0"
+                                                                                  AnchorPane.topAnchor="0.0"/>
+                                                                    </children>
+                                                                </AnchorPane>
+                                                            </content>
+                                                        </Tab>
+                                                    </tabs>
+                                                </TabPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </items>
+                                </SplitPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="设置">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ScrollPane layoutX="8.0" layoutY="7.0" prefHeight="410.0" prefWidth="622.0"
+                                            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                            AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <content>
+                                        <AnchorPane minHeight="400.0" minWidth="600.0">
+                                            <children>
+                                                <Button fx:id="SettingApplyPortBtn" layoutX="194.0" layoutY="100.0"
+                                                        mnemonicParsing="false" onAction="#handleApplyPort"
+                                                        prefWidth="70.0" text="应用"/>
+                                                <Text layoutX="15.0" layoutY="30.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="代理监听" AnchorPane.leftAnchor="14.0"
+                                                      AnchorPane.topAnchor="15.0">
+                                                    <font>
+                                                        <Font size="14.0"/>
+                                                    </font>
+                                                </Text>
+                                                <TextField fx:id="SettingPortField" layoutX="15.0" layoutY="100.0"
+                                                           prefWidth="170.0" text="8080"/>
+                                                <Text fx:id="SettingStatusText" layoutX="15.0" layoutY="60.0"
+                                                      strokeType="OUTSIDE" strokeWidth="0.0" text="当前状态: 未启动"/>
+                                                <Text layoutX="15.0" layoutY="90.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="端口设置"/>
+                                                <!-- TODO
+                                                <Text layoutX="15.0" layoutY="150.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="系统代理"/>
+                                                <Button fx:id="SettingWinProxyBtn" layoutX="15.0" layoutY="160.0"
+                                                        mnemonicParsing="false" prefWidth="250.0"
+                                                        text="自动设置 Windows 系统代理"/> -->
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

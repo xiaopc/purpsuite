@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<fx:root type="GridPane" alignment="center" hgap="10" minHeight="600.0" minWidth="800.0" vgap="10"
+          xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TabPane prefHeight="329.0" prefWidth="502.0" tabClosingPolicy="UNAVAILABLE" GridPane.hgrow="ALWAYS"
+                 GridPane.vgrow="ALWAYS">
+            <tabs>
+                <Tab text="包代理">
+                    <content>
+                        <fx:include fx:id="ProxyPage" source="proxy.fxml"/>
+                    </content>
+                </Tab>
+                <Tab text="日志">
+                    <content>
+                        <fx:include fx:id="LoggerPage" source="logger.fxml"/>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+    </rowConstraints>
+</fx:root>
