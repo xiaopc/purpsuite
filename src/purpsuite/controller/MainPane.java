@@ -31,7 +31,7 @@ public class MainPane extends GridPane {
     };
 
     public MainPane() throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/purpsuite/view/main.fxml"));
         loader.setControllerFactory(controllerFactory);
         loader.setRoot(this);
         loader.setController(this);
