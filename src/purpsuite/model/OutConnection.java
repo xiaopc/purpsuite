@@ -30,13 +30,16 @@ public class OutConnection extends ThrowToLogger implements Runnable{
         try {
             connect();
             UIController.HandleBack(backid, getRespContent());
-        } catch ( Exception e ) { Throw(e); }
+        } catch ( Exception e ) {
+            if (e instanceof NullPointerException) UIController.HandleBackFail(backid);
+            Throw(e);
+        }
     }
 
     private void connect(){
         try {
             Socket socket = new Socket(host, Integer.parseInt(port));
-            socket.setSoTimeout(500);
+            socket.setSoTimeout(1000);
             socket.setKeepAlive(true);
             InputStream is = socket.getInputStream();
             OutputStream os = socket.getOutputStream();
@@ -51,7 +54,7 @@ public class OutConnection extends ThrowToLogger implements Runnable{
         }
     }
 
-    public String getRespContent(){
+    public String getRespContent() throws NullPointerException{
         return httpHeader.toString();
     }
 }

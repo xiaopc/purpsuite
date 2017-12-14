@@ -60,8 +60,13 @@ public class InProxy extends ThrowToLogger implements Runnable {
     }
 
     public void initProxy(int port) {
-        this.port = port;
         try {
+            if (port == this.port) return;
+            else if (isSet){
+                server.close();
+            }
+            this.port = port;
+
             server = new ServerSocket(port);
             pool = new InProxyConPool();
             PoolThread = new Thread(pool);

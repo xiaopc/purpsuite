@@ -149,6 +149,7 @@ public class ProxyController extends ThrowToLogger{
     private void handleAllowBtn(ActionEvent event){
         //HostText.setText("");
         HistoryReq.add(ItemCounter,FilterTextArea.getText());
+        HistoryRes.add(ItemCounter,"");
         addHistoryLog(NowPack.getItemHostName(),NowPack.getMethod(),NowPack.getUri(),"wait");
         OutConnection out = new OutConnection(ItemCounter, NowPack.getItemHostName(), NowPack.getPort(),
                 FilterTextArea.getText());
@@ -185,9 +186,9 @@ public class ProxyController extends ThrowToLogger{
         NowPack = inProxy.getPacketInfo();
         if (isFiltering) {
             UIBoxSet(true);
-            //HostText.setText("目标地址: "+NowPack.getItemHostName()+":"+NowPack.getPort());
         } else {
             HistoryReq.add(ItemCounter,NowPack.getItemContent());
+            HistoryRes.add(ItemCounter,"");
             addHistoryLog(NowPack.getItemHostName(),NowPack.getMethod(),NowPack.getUri(),"wait");
             OutConnection out = new OutConnection(ItemCounter, NowPack.getItemHostName(), NowPack.getPort(),
                     NowPack.getItemContent());
@@ -208,13 +209,18 @@ public class ProxyController extends ThrowToLogger{
     }
 
     public void HandleBack(int id, String backData) throws Exception{
-        HistoryRes.add(id,backData);
+        HistoryRes.set(id,backData);
         inProxy.returnConnection(backData);
         HistoryData.get(id).setitemStatus("true");
     }
 
+    public void HandleBackFail(int id){
+        inProxy.clearTopCon();
+        HistoryData.get(id).setitemStatus("false");
+    }
+
     @FXML
-    private void handleApplyPort(ActionEvent event) throws IOException{
+    private void handleApplyPort(ActionEvent event) throws Exception{
         try {
             inProxy.initProxy(Integer.parseInt(SettingPortField.getText()));
             inProxyThread = new Thread(inProxy);
